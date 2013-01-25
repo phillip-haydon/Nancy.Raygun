@@ -1,18 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <id>Sandra.SimpleValidator</id>
-        <version>0.1.0</version>
-        <title>Sandra.SimpleValidator</title>
+        <id>Nancy.Raygun</id>
+        <version>1.0.1</version>
+        <title>Nancy.Raygun</title>
         <authors>Phillip Haydon</authors>
-        <owners>Phillip Haydon</owners>
-        <projectUrl>https://github.com/phillip-haydon/Sandra.SimpleValidator</projectUrl>
+        <owners />
+        <projectUrl>https://github.com/phillip-haydon/Nancy.Raygun</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Simple validation library for validating simple things on a model.</description>
+        <description>Nancy.Raygun is a non-offical library that wires up the error handling in Nancy to submit errors to Raygun, this uses NancyContext rather than HttpContext.Current like the offical package, with no dependency on System.Web making it portable for anywhere that your Nancy project is hosted.
+
+Checkout www.raygun.io for info on the Raygun service.</description>
+        <summary>Nancy Raygun for zapping errors!!!</summary>
         <copyright>2013</copyright>
-        <tags>validation</tags>
     </metadata>
     <files>
-        <file src="..\src\Sandra.SimpleValidator\bin\Release\Sandra.SimpleValidator.dll" target="lib\net40\Sandra.SimpleValidator.dll" />
+        <file src="content\web.config.transform" target="content\web.config.transform" />
+        <file src="lib\net40\Nancy.Raygun.dll" target="lib\net40\Nancy.Raygun.dll" />
     </files>
 </package>

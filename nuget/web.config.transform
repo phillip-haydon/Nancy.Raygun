@@ -1,0 +1,7 @@
+<configuration>
+  <configSections>
+    <section name="RaygunSettings" type="Nancy.Raygun.RaygunSettings, Nancy.Raygun"/>
+  </configSections>
+
+  <RaygunSettings apikey=" **your key here** " />
+</configuration>
