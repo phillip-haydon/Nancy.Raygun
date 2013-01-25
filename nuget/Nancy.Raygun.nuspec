@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Sandra.SimpleValidator</id>
+        <version>0.1.0</version>
+        <title>Sandra.SimpleValidator</title>
+        <authors>Phillip Haydon</authors>
+        <owners>Phillip Haydon</owners>
+        <projectUrl>https://github.com/phillip-haydon/Sandra.SimpleValidator</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Simple validation library for validating simple things on a model.</description>
+        <copyright>2013</copyright>
+        <tags>validation</tags>
+    </metadata>
+    <files>
+        <file src="..\src\Sandra.SimpleValidator\bin\Release\Sandra.SimpleValidator.dll" target="lib\net40\Sandra.SimpleValidator.dll" />
+    </files>
+</package>
