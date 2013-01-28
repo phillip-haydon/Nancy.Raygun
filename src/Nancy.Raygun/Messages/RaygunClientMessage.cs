@@ -6,7 +6,7 @@ namespace Nancy.Raygun.Messages
     {
         public RaygunClientMessage()
         {
-            Name = "Raygun4Net";
+            Name = "Nancy.Raygun";
             Version = Assembly.GetAssembly(typeof (RaygunClient)).GetName().Version.ToString();
             ClientUrl = @"https://github.com/MindscapeHQ/raygun4net";
         }

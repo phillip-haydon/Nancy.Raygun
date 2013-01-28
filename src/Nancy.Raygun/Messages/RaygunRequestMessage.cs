@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 
@@ -12,9 +13,10 @@ namespace Nancy.Raygun.Messages
             Url = context.Request.Url.ToString();
             HttpMethod = context.Request.Method;
             IPAddress = context.Request.UserHostAddress;
-            //Data = ToDictionary(context.Request.Body);
-            //QueryString = ToDictionary(context.Request.Query);
-            //Headers = ToDictionary(context.Request.Headers);
+            Data = ToDictionary(context.Request.Body);
+            Form = ToDictionary(context.Request.Form);
+            QueryString = ToDictionary(context.Request.Query);
+            Headers = ToDictionary(context.Request.Headers);
         }
 
         public string HostName { get; set; }
@@ -31,11 +33,18 @@ namespace Nancy.Raygun.Messages
 
         public IDictionary Data { get; set; }
 
-        private static IDictionary ToDictionary(NameValueCollection nameValueCollection)
-        {
-            var keys = nameValueCollection.AllKeys;
+        public IDictionary Form { get; set; }
 
-            return keys.ToDictionary(s => s, s => nameValueCollection[s]);
+        private static IDictionary ToDictionary(dynamic stuffs)
+        {
+            var result = new Dictionary<dynamic, dynamic>();
+
+            foreach (var item in stuffs)
+            {
+                result.Add(item, stuffs[item]);
+            }
+
+            return result;
         }
     }
 }

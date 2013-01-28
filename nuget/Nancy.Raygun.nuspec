@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Nancy.Raygun</id>
-        <version>1.0.1</version>
+        <version>1.1.0</version>
         <title>Nancy.Raygun</title>
         <authors>Phillip Haydon</authors>
         <owners />
@@ -16,6 +16,6 @@ Checkout www.raygun.io for info on the Raygun service.</description>
     </metadata>
     <files>
         <file src="content\web.config.transform" target="content\web.config.transform" />
-        <file src="lib\net40\Nancy.Raygun.dll" target="lib\net40\Nancy.Raygun.dll" />
+        <file src="..\release\Nancy.Raygun.dll" target="lib\net40\Nancy.Raygun.dll" />
     </files>
 </package>

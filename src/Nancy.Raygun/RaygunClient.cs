@@ -36,6 +36,13 @@ namespace Nancy.Raygun
             Send(message);
         }
 
+        public void SendInBackground(Exception exception)
+        {
+            var message = BuildMessage(null, exception);
+
+            Send(message);
+        }
+
         internal RaygunMessage BuildMessage(NancyContext context, Exception exception)
         {
             var message = RaygunMessageBuilder.New
