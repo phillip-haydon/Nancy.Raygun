@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Text;
@@ -29,17 +31,20 @@ namespace Nancy.Raygun
         {
         }
 
-        public void SendInBackground(NancyContext context, Exception exception)
+        public void SendInBackground(NancyContext context, Exception exception, IList<string> tags = null, IDictionary userCustomData = null, string version = null)
         {
             var message = BuildMessage(context, exception);
-
+            message.Details.Tags = tags;
+            message.Details.Version = version;
+            message.Details.UserCustomData = userCustomData;
             Send(message);
         }
 
-        public void SendInBackground(Exception exception)
+        public void SendInBackground(Exception exception, IList<string> tags = null, IDictionary userCustomData = null, string version = null)
         {
             var message = BuildMessage(null, exception);
-
+            message.Details.Tags = tags;
+            message.Details.Version = version;
             Send(message);
         }
 
@@ -51,6 +56,7 @@ namespace Nancy.Raygun
                                               .SetMachineName(Environment.MachineName)
                                               .SetExceptionDetails(exception)
                                               .SetClientDetails()
+                                              .SetVersion()
                                               .Build();
             return message;
         }

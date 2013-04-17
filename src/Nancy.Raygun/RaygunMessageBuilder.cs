@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Nancy.Raygun.Messages;
 
 namespace Nancy.Raygun
@@ -62,5 +63,21 @@ namespace Nancy.Raygun
 
             return this;
         }
+
+        public IRaygunMessageBuilder SetVersion()
+        {
+            var entryAssembly = Assembly.GetEntryAssembly();
+
+            if (entryAssembly != null)
+            {
+                _raygunMessage.Details.Version = entryAssembly.GetName().Version.ToString();
+            }
+            else
+            {
+                _raygunMessage.Details.Version = "Not supplied";
+            }
+
+            return this;
+        }   
     }
 }

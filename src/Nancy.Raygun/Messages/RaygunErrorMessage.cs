@@ -24,16 +24,6 @@ namespace Nancy.Raygun.Messages
             }
         }
 
-        public RaygunErrorMessage InnerError { get; set; }
-
-        public IDictionary Data { get; set; }
-
-        public string ClassName { get; set; }
-
-        public string Message { get; set; }
-
-        public RaygunErrorStackTraceLineMessage[] StackTrace { get; set; }
-
         private RaygunErrorStackTraceLineMessage[] BuildStackTrace(Exception exception)
         {
             var lines = new List<RaygunErrorStackTraceLineMessage>();
@@ -43,18 +33,18 @@ namespace Nancy.Raygun.Messages
 
             if (frames == null || frames.Length == 0)
             {
-                var line = new RaygunErrorStackTraceLineMessage {FileName = "none", LineNumber = 0};
+                var line = new RaygunErrorStackTraceLineMessage { FileName = "none", LineNumber = 0 };
                 lines.Add(line);
                 return lines.ToArray();
             }
 
             foreach (StackFrame frame in frames)
             {
-                var method = frame.GetMethod();
+                MethodBase method = frame.GetMethod();
 
                 if (method != null)
                 {
-                    var lineNumber = frame.GetFileLineNumber();
+                    int lineNumber = frame.GetFileLineNumber();
 
                     if (lineNumber == 0)
                     {
@@ -63,11 +53,11 @@ namespace Nancy.Raygun.Messages
 
                     var methodName = GenerateMethodName(method);
 
-                    var file = frame.GetFileName();
+                    string file = frame.GetFileName();
 
-                    var className = method.ReflectedType != null
-                                        ? method.ReflectedType.FullName
-                                        : "(unknown)";
+                    string className = method.ReflectedType != null
+                                 ? method.ReflectedType.FullName
+                                 : "(unknown)";
 
                     var line = new RaygunErrorStackTraceLineMessage
                     {
@@ -80,6 +70,7 @@ namespace Nancy.Raygun.Messages
                     lines.Add(line);
                 }
             }
+
             return lines.ToArray();
         }
 
@@ -91,10 +82,10 @@ namespace Nancy.Raygun.Messages
 
             if (method is MethodInfo && method.IsGenericMethod)
             {
-                var genericArguments = method.GetGenericArguments();
+                Type[] genericArguments = method.GetGenericArguments();
                 stringBuilder.Append("[");
-                var index2 = 0;
-                var flag2 = true;
+                int index2 = 0;
+                bool flag2 = true;
                 for (; index2 < genericArguments.Length; ++index2)
                 {
                     if (!flag2)
@@ -106,15 +97,15 @@ namespace Nancy.Raygun.Messages
                 stringBuilder.Append("]");
             }
             stringBuilder.Append("(");
-            var parameters = method.GetParameters();
-            var flag3 = true;
-            for (var index2 = 0; index2 < parameters.Length; ++index2)
+            ParameterInfo[] parameters = method.GetParameters();
+            bool flag3 = true;
+            for (int index2 = 0; index2 < parameters.Length; ++index2)
             {
                 if (!flag3)
                     stringBuilder.Append(", ");
                 else
                     flag3 = false;
-                var str2 = "<UnknownType>";
+                string str2 = "<UnknownType>";
                 if (parameters[index2].ParameterType != null)
                     str2 = parameters[index2].ParameterType.Name;
                 stringBuilder.Append(str2 + " " + parameters[index2].Name);
@@ -123,5 +114,11 @@ namespace Nancy.Raygun.Messages
 
             return stringBuilder.ToString();
         }
+
+        public RaygunErrorMessage InnerError { get; set; }
+        public IDictionary Data { get; set; }
+        public string ClassName { get; set; }
+        public string Message { get; set; }
+        public RaygunErrorStackTraceLineMessage[] StackTrace { get; set; }
     }
 }

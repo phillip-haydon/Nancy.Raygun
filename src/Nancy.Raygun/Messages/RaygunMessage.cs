@@ -11,7 +11,6 @@ namespace Nancy.Raygun.Messages
         }
 
         public DateTime OccurredOn { get; set; }
-
         public RaygunMessageDetails Details { get; set; }
     }
 }
