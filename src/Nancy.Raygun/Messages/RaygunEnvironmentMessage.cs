@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Security;
 
 namespace Nancy.Raygun.Messages
 {
@@ -17,12 +18,20 @@ namespace Nancy.Raygun.Messages
             // since Nancy.Raygun is used for Web Sites, you probably know most of this info anyway
 
             ProcessorCount = Environment.ProcessorCount;
-
+            Locale = CultureInfo.CurrentCulture.DisplayName;
+            DateTime now = DateTime.Now;
+            UtcOffset = TimeZone.CurrentTimeZone.GetUtcOffset(now).TotalHours;
             OSVersion = Environment.OSVersion.VersionString;
-            Architecture = Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE");
-            Location = CultureInfo.CurrentCulture.DisplayName;
 
-            GetDiskSpace();
+            try
+            {
+                Architecture = Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE");
+                GetDiskSpace();
+            }
+            catch (SecurityException)
+            {
+                System.Diagnostics.Trace.WriteLine("RaygunClient error: couldn't access environment variables. If you are running in Medium Trust, in web.config in RaygunSettings set mediumtrust=\"true\"");
+            }
         }
 
         private void GetDiskSpace()
@@ -36,7 +45,8 @@ namespace Nancy.Raygun.Messages
         public int ProcessorCount { get; private set; }
         public string OSVersion { get; private set; }
         public string Architecture { get; private set; }
-        public string Location { get; private set; }
+        public string Locale { get; private set; }
+        public double UtcOffset { get; private set; }
 
         public List<double> DiskSpaceFree
         {
