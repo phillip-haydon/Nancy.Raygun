@@ -42,10 +42,7 @@ namespace Nancy.Raygun
 
         public void SendInBackground(Exception exception, IList<string> tags = null, IDictionary userCustomData = null, string version = null)
         {
-            var message = BuildMessage(null, exception);
-            message.Details.Tags = tags;
-            message.Details.Version = version;
-            Send(message);
+            SendInBackground(null, exception, tags, userCustomData, version);
         }
 
         internal RaygunMessage BuildMessage(NancyContext context, Exception exception)
@@ -57,7 +54,9 @@ namespace Nancy.Raygun
                                               .SetExceptionDetails(exception)
                                               .SetClientDetails()
                                               .SetVersion()
+                                              .SetUser((context == null || context.CurrentUser == null) ? null : context.CurrentUser.UserName)
                                               .Build();
+
             return message;
         }
 

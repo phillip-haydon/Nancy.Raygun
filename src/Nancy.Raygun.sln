@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Raygun", "Nancy.Raygun\Nancy.Raygun.csproj", "{5F1CB477-BC71-49E6-8B57-2075D90C94D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Raygun.WebSiteSample.RaygunSettings", "Nancy.Raygun.WebSiteSample.RaygunSettings\Nancy.Raygun.WebSiteSample.RaygunSettings.csproj", "{1CFCA529-1E16-4744-8D43-C8FCFD0BC31B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Raygun.WebSiteSample.AppSettings", "Nancy.Raygun.WebSiteSample.AppSettings\Nancy.Raygun.WebSiteSample.AppSettings.csproj", "{8D4E3666-AA34-45FA-A7D7-81A01C01D638}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Raygun.Tests", "Nancy.Raygun.Tests\Nancy.Raygun.Tests.csproj", "{FCD4E4FA-14DD-467C-B5E5-C4D87C0775B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{8D4E3666-AA34-45FA-A7D7-81A01C01D638}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D4E3666-AA34-45FA-A7D7-81A01C01D638}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D4E3666-AA34-45FA-A7D7-81A01C01D638}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD4E4FA-14DD-467C-B5E5-C4D87C0775B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD4E4FA-14DD-467C-B5E5-C4D87C0775B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD4E4FA-14DD-467C-B5E5-C4D87C0775B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD4E4FA-14DD-467C-B5E5-C4D87C0775B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

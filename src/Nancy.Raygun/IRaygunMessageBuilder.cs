@@ -11,5 +11,6 @@ namespace Nancy.Raygun
         IRaygunMessageBuilder SetClientDetails();
         IRaygunMessageBuilder SetEnvironmentDetails();
         IRaygunMessageBuilder SetVersion();
+        IRaygunMessageBuilder SetUser(string identifier);
     }
 }

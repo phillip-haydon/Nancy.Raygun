@@ -30,6 +30,15 @@ namespace Nancy.Raygun
             return this;
         }
 
+        public IRaygunMessageBuilder SetUser(string identifier)
+        {
+            _raygunMessage.Details.User = string.IsNullOrWhiteSpace(identifier)
+                ? null
+                : new RaygunUserMessage(identifier);
+
+            return this;
+        }
+
         public IRaygunMessageBuilder SetEnvironmentDetails()
         {
             _raygunMessage.Details.Environment = new RaygunEnvironmentMessage();

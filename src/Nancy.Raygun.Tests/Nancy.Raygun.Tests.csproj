@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5F1CB477-BC71-49E6-8B57-2075D90C94D4}</ProjectGuid>
+    <ProjectGuid>{FCD4E4FA-14DD-467C-B5E5-C4D87C0775B1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nancy.Raygun</RootNamespace>
-    <AssemblyName>Nancy.Raygun</AssemblyName>
+    <RootNamespace>Nancy.Raygun.Tests</RootNamespace>
+    <AssemblyName>Nancy.Raygun.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,45 +31,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Nancy">
-      <HintPath>..\packages\Nancy.0.15.3\lib\net40\Nancy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="xunit">
+      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\HttpEncoder.cs" />
-    <Compile Include="Helpers\HttpUtility.cs" />
-    <Compile Include="Helpers\ReflectionUtils.cs" />
-    <Compile Include="IRaygunMessageBuilder.cs" />
-    <Compile Include="Json\Converters\TimeSpanConverter.cs" />
-    <Compile Include="Json\JavaScriptConverter.cs" />
-    <Compile Include="Json\JavaScriptSerializer.cs" />
-    <Compile Include="Json\JavaScriptTypeResolver.cs" />
-    <Compile Include="Json\Json.cs" />
-    <Compile Include="Json\JsonDeserializer.cs" />
-    <Compile Include="Json\JsonSerializer.cs" />
-    <Compile Include="Json\JsonSettings.cs" />
-    <Compile Include="Json\ScriptIgnoreAttribute.cs" />
-    <Compile Include="Json\StringBuilderExtensions.cs" />
-    <Compile Include="Messages\RaygunClientMessage.cs" />
-    <Compile Include="Messages\RaygunEnvironmentMessage.cs" />
-    <Compile Include="Messages\RaygunErrorMessage.cs" />
-    <Compile Include="Messages\RaygunErrorStackTraceLineMessage.cs" />
-    <Compile Include="Messages\RaygunMessage.cs" />
-    <Compile Include="Messages\RaygunMessageDetails.cs" />
-    <Compile Include="Messages\RaygunRequestMessage.cs" />
-    <Compile Include="Messages\RaygunUserMessage.cs" />
+    <Compile Include="RaygunMessageBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RaygunClient.cs" />
-    <Compile Include="RaygunMessageBuilder.cs" />
-    <Compile Include="RaygunSettings.cs" />
-    <Compile Include="NancyRaygunRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nancy.Raygun\Nancy.Raygun.csproj">
+      <Project>{5f1cb477-bc71-49e6-8b57-2075d90c94d4}</Project>
+      <Name>Nancy.Raygun</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
