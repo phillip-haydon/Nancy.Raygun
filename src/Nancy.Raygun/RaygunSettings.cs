@@ -1,8 +1,8 @@
-﻿using System;
-using System.Configuration;
-
-namespace Nancy.Raygun
+﻿namespace Nancy.Raygun
 {
+    using System;
+    using System.Configuration;
+
     public class RaygunSettings : ConfigurationSection
     {
         private const string DefaultApiEndPoint = "https://api.raygun.io/entries";
