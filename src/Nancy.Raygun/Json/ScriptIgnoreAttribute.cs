@@ -27,10 +27,10 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-using System;
-
 namespace Nancy.Raygun.Json
 {
+    using System;
+
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public sealed class ScriptIgnoreAttribute : Attribute
     {

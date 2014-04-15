@@ -1,8 +1,8 @@
-using System;
-using System.Collections.Generic;
-
 namespace Nancy.Raygun.Json.Converters
 {
+    using System;
+    using System.Collections.Generic;
+
     public class TimeSpanConverter : JavaScriptConverter
     {
         public override IEnumerable<Type> SupportedTypes

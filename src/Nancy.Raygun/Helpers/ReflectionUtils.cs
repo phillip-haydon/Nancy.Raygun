@@ -25,13 +25,13 @@
 
 #endregion
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-
 namespace Nancy.Raygun.Helpers
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Reflection;
+
     internal static class ReflectionUtils
     {
         private static readonly Type GenericDictionaryType = typeof (IDictionary<,>);

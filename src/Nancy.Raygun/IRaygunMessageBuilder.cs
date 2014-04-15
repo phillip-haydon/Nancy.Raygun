@@ -1,8 +1,8 @@
-﻿using System;
-using Nancy.Raygun.Messages;
-
-namespace Nancy.Raygun
+﻿namespace Nancy.Raygun
 {
+    using System;
+    using Messages;
+
     public interface IRaygunMessageBuilder
     {
         RaygunMessage Build();

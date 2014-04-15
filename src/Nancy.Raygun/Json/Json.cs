@@ -27,13 +27,13 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-using System;
-using System.Globalization;
-using System.IO;
-using System.Text;
-
 namespace Nancy.Raygun.Json
 {
+    using System;
+    using System.Globalization;
+    using System.IO;
+    using System.Text;
+
     internal static class Json
     {
         public static IFormatProvider DefaultNumberFormatInfo

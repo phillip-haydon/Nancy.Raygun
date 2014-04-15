@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using Nancy.Raygun.Json.Converters;
-
 namespace Nancy.Raygun.Json
 {
+    using System.Collections.Generic;
+    using Converters;
+
     /// <summary>
     ///     Json serializer settings
     /// </summary>

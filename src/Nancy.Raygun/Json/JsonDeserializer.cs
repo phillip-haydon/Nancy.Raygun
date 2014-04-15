@@ -57,15 +57,15 @@ SOFTWARE.
 
 #endregion
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Text;
-
 namespace Nancy.Raygun.Json
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.IO;
+    using System.Text;
+
     internal sealed class JsonDeserializer
     {
         /* Universal error constant */

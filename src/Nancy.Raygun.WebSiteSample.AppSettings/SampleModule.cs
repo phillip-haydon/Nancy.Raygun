@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Nancy.Raygun.WebSiteSample.AppSettings
+﻿namespace Nancy.Raygun.WebSiteSample.AppSettings
 {
+    using System;
+
     public class SampleModule : NancyModule
     {
         public SampleModule()

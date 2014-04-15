@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-
 namespace Nancy.Raygun.Messages
 {
+    using System.Collections;
+    using System.Collections.Generic;
+
     public class RaygunMessageDetails
     {
         public string MachineName { get; set; }

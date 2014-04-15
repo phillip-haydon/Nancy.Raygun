@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net;
-using System.Text;
-using System.Threading;
-using Nancy.Raygun.Messages;
-
-namespace Nancy.Raygun
+﻿namespace Nancy.Raygun
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Net;
+    using System.Text;
+    using System.Threading;
+    using Messages;
+
     public class RaygunClient
     {
         private readonly string _apiKey;

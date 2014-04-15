@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Security;
-
-namespace Nancy.Raygun.Messages
+﻿namespace Nancy.Raygun.Messages
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.IO;
+    using System.Linq;
+    using System.Security;
+
     public class RaygunEnvironmentMessage
     {
         private List<double> _diskSpaceFree = new List<double>();

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-
-namespace Nancy.Raygun.Tests
+﻿namespace Nancy.Raygun.Tests
 {
+    using Xunit;
+
     public class RaygunMessageBuilderTests
     {
         [Fact]
