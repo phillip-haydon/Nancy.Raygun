@@ -1,7 +1,7 @@
-﻿using System.Reflection;
-
-namespace Nancy.Raygun.Messages
+﻿namespace Nancy.Raygun.Messages
 {
+    using System.Reflection;
+
     public class RaygunClientMessage
     {
         public RaygunClientMessage()

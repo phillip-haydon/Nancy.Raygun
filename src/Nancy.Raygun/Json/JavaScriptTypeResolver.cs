@@ -27,10 +27,10 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-using System;
-
 namespace Nancy.Raygun.Json
 {
+    using System;
+
     public abstract class JavaScriptTypeResolver
     {
         public abstract Type ResolveType(string id);

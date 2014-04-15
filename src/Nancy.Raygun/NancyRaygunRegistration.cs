@@ -1,9 +1,9 @@
-﻿using System;
-using System.Configuration;
-using Nancy.Bootstrapper;
-
-namespace Nancy.Raygun
+﻿namespace Nancy.Raygun
 {
+    using System;
+    using System.Configuration;
+    using Bootstrapper;
+
     public class NancyRaygunRegistration : IApplicationStartup
     {
         private static readonly RaygunClient Client;

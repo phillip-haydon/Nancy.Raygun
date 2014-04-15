@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Nancy.Raygun.Messages
 {
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class RaygunRequestMessage
     {
         public RaygunRequestMessage(NancyContext context)

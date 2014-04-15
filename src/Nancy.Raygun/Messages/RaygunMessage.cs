@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Nancy.Raygun.Messages
+﻿namespace Nancy.Raygun.Messages
 {
+    using System;
+
     public class RaygunMessage
     {
         public RaygunMessage()
