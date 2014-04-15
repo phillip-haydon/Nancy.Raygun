@@ -2,10 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Nancy.Raygun</id>
-        <version>1.2.1</version>
+        <version>1.5.0</version>
         <title>Nancy.Raygun</title>
         <authors>Phillip Haydon</authors>
-        <owners />
         <projectUrl>https://github.com/phillip-haydon/Nancy.Raygun</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Nancy.Raygun is a non-offical library that wires up the error handling in Nancy to submit errors to Raygun, this uses NancyContext rather than HttpContext.Current like the offical package, with no dependency on System.Web making it portable for anywhere that your Nancy project is hosted.
@@ -15,7 +14,6 @@ Checkout www.raygun.io for info on the Raygun service.</description>
         <copyright>2013</copyright>
     </metadata>
     <files>
-        <file src="content\web.config.transform" target="content\web.config.transform" />
-        <file src="..\build\Nancy.Raygun.dll" target="lib\net40\Nancy.Raygun.dll" />
+        <file src="..\src\Nancy.Raygun\bin\Release\Nancy.Raygun.dll" target="lib\Nancy.Raygun.dll" />
     </files>
 </package>
