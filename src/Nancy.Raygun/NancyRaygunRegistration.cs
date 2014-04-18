@@ -14,25 +14,21 @@
 
             if (string.IsNullOrWhiteSpace(apiKey))
             {
-                if (ConfigurationManager.AppSettings["nr.apiKey"] == null)
-                {
-                    throw new ApplicationException("No Raygun API Key configured in RaygunSettings or AppSettings");
-                }
-
                 apiKey = ConfigurationManager.AppSettings["nr.apiKey"];
             }
+
+            if (apiKey == null) return;
 
             Client = new RaygunClient(apiKey);
         }
 
         public void Initialize(IPipelines pipelines)
         {
+            if (Client == null) return;
+
             pipelines.OnError.AddItemToEndOfPipeline((context, exception) =>
             {
-                if (Client != null)
-                {
-                    Client.SendInBackground(context, exception);
-                }
+                Client.SendInBackground(context, exception);
 
                 return null;
             });
