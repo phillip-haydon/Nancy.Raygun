@@ -1,6 +1,7 @@
-﻿namespace Nancy.Raygun
+﻿using System;
+
+namespace Nancy.Raygun
 {
-    using System;
     using System.Configuration;
     using Bootstrapper;
 
@@ -26,12 +27,14 @@
         {
             if (Client == null) return;
 
-            pipelines.OnError.AddItemToEndOfPipeline((context, exception) =>
+            var raygunItem = new PipelineItem<Func<NancyContext, Exception, Response>>("Raygun", (context, exception) =>
             {
                 Client.SendInBackground(context, exception);
 
                 return null;
             });
+
+            pipelines.OnError.AddItemToStartOfPipeline(raygunItem);
         }
     }
 }
