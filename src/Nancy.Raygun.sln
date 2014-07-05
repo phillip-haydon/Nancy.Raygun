@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Raygun", "Nancy.Raygun\Nancy.Raygun.csproj", "{5F1CB477-BC71-49E6-8B57-2075D90C94D4}"
 EndProject
@@ -10,6 +10,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Raygun.WebSiteSample.AppSettings", "Nancy.Raygun.WebSiteSample.AppSettings\Nancy.Raygun.WebSiteSample.AppSettings.csproj", "{8D4E3666-AA34-45FA-A7D7-81A01C01D638}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Raygun.Tests", "Nancy.Raygun.Tests\Nancy.Raygun.Tests.csproj", "{FCD4E4FA-14DD-467C-B5E5-C4D87C0775B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{33FF3122-397B-466B-AC50-BE528B9A8D9B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
