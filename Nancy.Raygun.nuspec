@@ -14,6 +14,6 @@ Checkout www.raygun.io for info on the Raygun service.</description>
         <copyright>2013</copyright>
     </metadata>
     <files>
-        <file src="..\src\Nancy.Raygun\bin\Release\Nancy.Raygun.dll" target="lib\Nancy.Raygun.dll" />
+        <file src="src\Nancy.Raygun\bin\Release\Nancy.Raygun.dll" target="lib\Nancy.Raygun.dll" />
     </files>
 </package>
