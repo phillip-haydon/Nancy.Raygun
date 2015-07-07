@@ -3,6 +3,7 @@ namespace Nancy.Raygun.Messages
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+	using System.IO;
 
     public class RaygunRequestMessage
     {
@@ -12,7 +13,7 @@ namespace Nancy.Raygun.Messages
             Url = context.Request.Url.ToString();
             HttpMethod = context.Request.Method;
             IPAddress = context.Request.UserHostAddress;
-            //Data = ToDictionary(context.Request.Body);
+			Data = StreamToString(context.Request.Body);
             Form = ToDictionary(context.Request.Form);
             QueryString = ToDictionary(context.Request.Query);
             Headers = ToDictionary(context.Request.Headers);
@@ -29,6 +30,14 @@ namespace Nancy.Raygun.Messages
 
             return result;
         }
+
+		private static string StreamToString(Stream stream) {
+			StreamReader reader = new StreamReader (stream);
+			var result = reader.ReadToEnd ();
+			// Returning to the beginning of the stream in case someone else needs to read it
+			stream.Position = 0; 
+			return result;
+		}
 
         private static IDictionary ToDictionary(RequestHeaders stuffs)
         {
@@ -64,7 +73,7 @@ namespace Nancy.Raygun.Messages
         public string IPAddress { get; set; }
         public IDictionary QueryString { get; set; }
         public IDictionary Headers { get; set; }
-        public IDictionary Data { get; set; }
+        public string Data { get; set; }
         public IDictionary Form { get; set; }
     }
 }
