@@ -27,7 +27,7 @@ namespace Nancy.Raygun
         {
             if (Client == null) return;
 
-            var raygunItem = new PipelineItem<Func<NancyContext, Exception, Response>>("Raygun", (context, exception) =>
+            var raygunItem = new PipelineItem<Func<NancyContext, Exception, dynamic>>("Raygun", (context, exception) =>
             {
                 Client.SendInBackground(context, exception);
 
